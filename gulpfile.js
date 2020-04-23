@@ -26,6 +26,7 @@ const configuration = {
   configFiles: [
     './service-worker.js',
     './manifest.json',
+    './scripts/recipes.json',
   ],
   assets: {
     directory: {
@@ -33,6 +34,7 @@ const configuration = {
       images: 'assets/images',
     },
     js: [
+      "node_modules/bootstrap/dist/js/bootstrap.min.js",
       'scripts/**/*.js'
     ],
     css: [
@@ -90,7 +92,8 @@ const html = {
   },
   htmlClean() {
     return del([
-      `${configuration.folders.dest}base${configuration.folders.dest}components`
+      `${configuration.folders.dest}base`,
+      `${configuration.folders.dest}components`
     ]);
   },
   destClean() {
